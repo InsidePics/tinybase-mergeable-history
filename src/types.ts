@@ -5,6 +5,7 @@ export interface HistoryOptions {
   maxActions?: number;
   maxAge?: number;
   generateId?: () => string;
+  getAuthor?: () => string;
   withBypass?: (fn: () => void) => void;
 }
 

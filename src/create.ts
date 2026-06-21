@@ -21,6 +21,7 @@ export function createHistory(
     options?.maxActions ?? 200,
     options?.maxAge ?? THIRTY_DAYS,
     options?.generateId ?? defaultGenerateId,
+    options?.getAuthor ?? (() => ''),
     options?.withBypass ?? ((fn: () => void) => fn())
   );
 }

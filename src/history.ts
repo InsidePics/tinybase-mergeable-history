@@ -21,6 +21,7 @@ export class History implements IHistory {
     private maxActions: number,
     private maxAge: number,
     private readonly generateId: () => string,
+    private readonly getAuthor: () => string,
     private readonly bypassFn: (fn: () => void) => void
   ) {
     this.txListenerId = store.addWillFinishTransactionListener(() => {
@@ -44,6 +45,7 @@ export class History implements IHistory {
           delta: JSON.stringify(filteredCells),
           dv: JSON.stringify(changedValues),
           undone: 0,
+          author: this.getAuthor(),
         });
       });
 

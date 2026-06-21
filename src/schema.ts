@@ -13,5 +13,6 @@ export const historyTablesSchema = {
     delta: z.string(),
     dv: z.string(),
     undone: z.number(),
+    author: z.string().default(''),
   }),
 };

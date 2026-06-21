@@ -84,6 +84,43 @@ describe('action()', () => {
   });
 });
 
+describe('author attribution', () => {
+  it('writes getAuthor() result into the history row', () => {
+    idCounter = 0;
+    const store = createStore();
+    const history = createHistory(store, {
+      generateId: testId,
+      getAuthor: () => 'user-1',
+    });
+
+    const id = history.action(() => {
+      store.setCell('pets', 'fido', 'species', 'dog');
+    });
+
+    expect(store.getCell('_history', id!, 'author')).toBe('user-1');
+  });
+
+  it('defaults author to empty string when no getAuthor supplied', () => {
+    const { store, history } = setup();
+
+    const id = history.action(() => {
+      store.setCell('pets', 'fido', 'species', 'dog');
+    });
+
+    expect(store.getCell('_history', id!, 'author')).toBe('');
+  });
+
+  it('writes no history row for a transaction outside action()', () => {
+    const { store } = setup();
+
+    store.transaction(() => {
+      store.setCell('pets', 'fido', 'species', 'dog');
+    });
+
+    expect(store.getRowIds('_history')).toEqual([]);
+  });
+});
+
 describe('goBackward() / goForward()', () => {
   it('goBackward restores data and marks undone', () => {
     const { store, history } = setup();
