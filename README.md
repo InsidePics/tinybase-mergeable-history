@@ -1,5 +1,11 @@
 # tinybase-mergeable-history
 
+[![npm version](https://img.shields.io/npm/v/tinybase-mergeable-history)](https://www.npmjs.com/package/tinybase-mergeable-history)
+[![npm downloads](https://img.shields.io/npm/dm/tinybase-mergeable-history)](https://www.npmjs.com/package/tinybase-mergeable-history)
+[![minzipped size](https://img.shields.io/bundlephobia/minzip/tinybase-mergeable-history)](https://bundlephobia.com/package/tinybase-mergeable-history)
+[![types](https://img.shields.io/npm/types/tinybase-mergeable-history)](https://www.npmjs.com/package/tinybase-mergeable-history)
+[![license](https://img.shields.io/npm/l/tinybase-mergeable-history)](./LICENSE)
+
 Persistent, syncable, **CRDT-aware** undo/redo history for [TinyBase](https://tinybase.org).
 
 TinyBase's built-in [`Checkpoints`](https://tinybase.org/api/checkpoints/) keep an undo stack in memory: it is lost on reload, scoped to a single client, and unaware of `MergeableStore` merges. `tinybase-mergeable-history` takes the opposite approach — **history is stored as data inside the store itself** (in a `_history` table). Because the history lives in the store, it travels with:

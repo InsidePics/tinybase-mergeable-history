@@ -1,6 +1,6 @@
 {
   "name": "tinybase-mergeable-history",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Persistent, syncable, CRDT-aware undo/redo history for TinyBase MergeableStore. Unlike built-in Checkpoints, history is stored as data inside the store, so it survives reloads and merges across clients.",
   "main": "build/index.js",
   "module": "build/index.mjs",
