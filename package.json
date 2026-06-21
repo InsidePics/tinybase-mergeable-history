@@ -1,0 +1,41 @@
+{
+  "name": "tinybase-mergeable-history",
+  "version": "1.0.0",
+  "description": "Persistent, syncable, CRDT-aware undo/redo history for TinyBase MergeableStore. Unlike built-in Checkpoints, history is stored as data inside the store, so it survives reloads and merges across clients.",
+  "main": "build/index.js",
+  "module": "build/index.mjs",
+  "types": "build/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "import": "./build/index.mjs",
+      "require": "./build/index.js"
+    }
+  },
+  "files": ["build", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "type-check": "tsc --noEmit",
+    "prepublishOnly": "tsup"
+  },
+  "keywords": ["tinybase","undo","redo","history","checkpoints","mergeable","mergeablestore","crdt","sync","local-first","undo-redo"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InsidePics/tinybase-mergeable-history.git"
+  },
+  "bugs": { "url": "https://github.com/InsidePics/tinybase-mergeable-history/issues" },
+  "homepage": "https://github.com/InsidePics/tinybase-mergeable-history#readme",
+  "author": "INSP LLC",
+  "license": "MIT",
+  "peerDependencies": { "tinybase": "^8.0.0" },
+  "dependencies": { "zod": "^4.3.6" },
+  "devDependencies": {
+    "tinybase": "^8.0.2",
+    "tsup": "^8.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
